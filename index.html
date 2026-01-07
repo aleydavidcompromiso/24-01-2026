@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: auto;
             padding: 20px;
         }
@@ -30,11 +30,10 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
-        /* TÍTULO ELEGANTE */
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.3rem;
-            margin-top: 29px;
+            margin-top: 28px;
             letter-spacing: 0.9px;
         }
 
@@ -121,86 +120,61 @@
             color: #9b7b66;
         }
 
+        /* ICONO FLOTANTE MÚSICA */
         .music-btn {
-        position: fixed;
-        bottom: 25px;
-        right: 25px;
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        background: #c89b7b;
-        color: #fff;
-        font-size: 22px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        transition: transform 0.3s, background 0.3s;
-        z-index: 9999;
-    }
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: #c89b7b;
+            color: #fff;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: transform 0.3s, background 0.3s;
+            z-index: 9999;
+        }
 
-    .music-btn:hover {
-        transform: scale(1.1);
-        background: #b58a6b;
-    }
+        .music-btn:hover {
+            transform: scale(1.1);
+            background: #b58a6b;
+        }
 
-    .music-btn.playing {
-        animation: pulse 1.5s infinite;
-    }
+        .music-btn.playing {
+            animation: pulse 1.5s infinite;
+        }
 
-    @keyframes pulse {
-        0% { box-shadow: 0 0 0 0 rgba(200,155,123,0.6); }
-        70% { box-shadow: 0 0 0 15px rgba(200,155,123,0); }
-        100% { box-shadow: 0 0 0 0 rgba(200,155,123,0); }
-    }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(200,155,123,0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(200,155,123,0); }
+            100% { box-shadow: 0 0 0 0 rgba(200,155,123,0); }
+        }
     </style>
 </head>
-
-    <!-- Botón flotante música -->
-<div class="music-btn" id="musicBtn">🎵</div>
-
-<script>
-    const music = document.getElementById("bg-music");
-    const btn = document.getElementById("musicBtn");
-    let isPlaying = false;
-
-    btn.addEventListener("click", () => {
-        if (!isPlaying) {
-            music.play();
-            btn.classList.add("playing");
-            btn.innerHTML = "⏸️";
-        } else {
-            music.pause();
-            btn.classList.remove("playing");
-            btn.innerHTML = "🎵";
-        }
-        isPlaying = !isPlaying;
-    });
-</script>
 
 <body>
 
 <div class="container">
 
     <!-- Música de fondo -->
-  <audio autoplay>
-    <source src="musica de fondo.mp3" type="audio/mpeg">
-      El navegador no puede reproducir el audio
-</audio>
+    <audio id="bg-music" loop>
+        <source src="musica de fondo.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Texto principal -->
     <h1>! NOS COMPROMETIMOS ¡</h1>
     <p class="subtitle">
         Estas invitado(a) a formar parte de nuestra historia 💍
     </p>
 
-    <!-- Imagen principal -->
     <div class="hero">
         <img src="invitacion.png" alt="Invitación Pedida de Mano">
     </div>
 
-    <!-- Información del evento -->
     <div class="info">
         <p><strong>📍 Lugar:</strong> Villa Bustamante</p>
         <p><strong>📌 Dirección:</strong> Calle Los Dátiles, Huanchaco – Trujillo</p>
@@ -208,7 +182,6 @@
         <p><strong>⏰ Hora:</strong> 5:30 PM</p>
     </div>
 
-    <!-- Cuenta regresiva -->
     <h2>Nuestra fecha especial empienza en:</h2>
     <div class="countdown">
         <div class="time-box">
@@ -229,22 +202,18 @@
         </div>
     </div>
 
-    <!-- Botones -->
-    <a 
-        class="btn btn-whatsapp" 
-        href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20pedida%20de%20mano.%20¡Gracias!"
-        target="_blank">
+    <a class="btn btn-whatsapp"
+       href="https://wa.me/51924547592?text=Hola,%20confirmo%20mi%20asistencia%20a%20la%20pedida%20de%20mano.%20¡Gracias!"
+       target="_blank">
         💬 Confirmar asistencia
     </a>
 
-    <a 
-        class="btn btn-maps"
-        href="https://maps.app.goo.gl/N5S3ya2N9fkUeCk4A"
-        target="_blank">
+    <a class="btn btn-maps"
+       href="https://maps.app.goo.gl/N5S3ya2N9fkUeCk4A"
+       target="_blank">
         📍 Ver ubicación
     </a>
 
-    <!-- Fecha límite -->
     <div class="fecha-limite">
         ⏳ Fecha límite de confirmación: <strong>21/01/2026</strong>
     </div>
@@ -255,7 +224,9 @@
 
 </div>
 
-<!-- JavaScript Cuenta Regresiva -->
+<!-- Botón flotante música -->
+<div class="music-btn" id="musicBtn">🎵</div>
+
 <script>
     const eventDate = new Date("2026-01-24T17:30:00").getTime();
 
@@ -280,20 +251,24 @@
         document.getElementById("minutes").innerText = minutes;
         document.getElementById("seconds").innerText = seconds;
     }, 1000);
+
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("musicBtn");
+    let isPlaying = false;
+
+    btn.addEventListener("click", () => {
+        if (!isPlaying) {
+            music.play();
+            btn.classList.add("playing");
+            btn.innerHTML = "⏸️";
+        } else {
+            music.pause();
+            btn.classList.remove("playing");
+            btn.innerHTML = "🎵";
+        }
+        isPlaying = !isPlaying;
+    });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
